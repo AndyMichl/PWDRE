@@ -1,0 +1,65 @@
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|c|c|}
+  \hline
+      & Počet & Průměrná & Medián & Průměrná & Entropie & ASCII \\
+      Slovník & hesel & délka & délky & entropie & nad 75 & hesla \\ \hline
+      10-million-password-list-top-100k.txt & 100007 & 6.82 & 7 & 29.29 & 0.05\% & 100.00\% \\
+      darkweb2017\_top-10000.txt & 9999 & 7.21 & 7 & 35.04 & 0.35\% & 99.54\% \\
+      english-6.txt & 15542 & 5.15 & 5 & 25.17 & 0.00\% & 100.00\% \\
+      fortinet-2021\_passwords-5k.txt & 4988 & 9.83 & 9 & 58.8 & 17.88\% & 100.00\% \\
+      hashmob.net\_tiny-200k.txt & 281347 & 7.68 & 8 & 35.95 & 0.19\% & 100.00\% \\
+      ignis-100K.txt & 100000 & 7.28 & 7 & 33.59 & 0.19\% & 99.99\% \\
+      phpbb-m.txt & 184344 & 7.54 & 8 & 36.65 & 0.26\% & 100.00\% \\
+      PwnedPasswordsTop100k.txt & 99870 & 7.37 & 7 & 34.58 & 0.39\% & 99.91\% \\
+      RockYou-960.txt & 959998 & 8.75 & 8 & 42.37 & 2.96\% & 99.90\% \\
+      Xato-net-100k.txt & 99999 & 6.82 & 7 & 29.29 & 0.05\% & 100.00\% \\
+      \hline
+  \end{tabular}
+  \caption{Porovnání slovníků s hesly} \label{tabulka1}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+      Znaková sada & 10-million-password-list-top-100k.txt & darkweb2017\_top-10000.txt & english-6.txt & fortinet-2021\_passwords-5k.txt & hashmob.net\_tiny-200k.txt & ignis-100K.txt & phpbb-m.txt & PwnedPasswordsTop100k.txt & RockYou-960.txt & Xato-net-100k.txt\\ \hline
+      D & 37930 & 780 & 0 & 184 & 73459 & 24166 & 20730 & 21376 & 157642 & 37931\\
+      L & 43504 & 4624 & 12552 & 185 & 79973 & 41517 & 76125 & 31903 & 253093 & 43501\\
+      U & 1003 & 15 & 182 & 15 & 1112 & 965 & 1711 & 563 & 15872 & 1003\\
+      S & 9 & 14 & 0 & 8 & 73 & 44 & 61 & 66 & 233 & 9\\
+      L U & 1895 & 45 & 2245 & 57 & 3945 & 1923 & 4982 & 1039 & 11085 & 1895\\
+      L D & 13634 & 4308 & 10 & 650 & 103835 & 28307 & 65844 & 41995 & 406510 & 13630\\
+      U D & 112 & 6 & 0 & 74 & 559 & 189 & 2187 & 91 & 27242 & 112\\
+      L U D & 1802 & 90 & 0 & 1412 & 16483 & 2560 & 8891 & 1081 & 25451 & 1802\\
+      D S & 14 & 13 & 0 & 11 & 381 & 59 & 191 & 68 & 2919 & 14\\
+      L S & 66 & 84 & 535 & 50 & 235 & 111 & 1387 & 1284 & 21998 & 65\\
+      U S & 3 & 2 & 8 & 11 & 7 & 7 & 37 & 5 & 1534 & 3\\
+      L U S & 3 & 1 & 10 & 85 & 16 & 7 & 271 & 7 & 3089 & 2\\
+      L D S & 13 & 13 & 0 & 509 & 536 & 77 & 1395 & 344 & 27803 & 13\\
+      U D S & 2 & 1 & 0 & 122 & 6 & 10 & 48 & 9 & 1824 & 2\\
+      L U D S & 17 & 3 & 0 & 1615 & 727 & 58 & 484 & 39 & 3703 & 17\\
+      \hline
+  \end{tabular}
+  \caption{Porovnání znakových sad mezi slovníky} \label{tabulka2}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+      Slovník & D & L & U & S & L U & L D & U D & L U D & D S & L S & U S & L U S & L D S & U D S & L U D S\\ \hline
+      10-million-password-list-top-100k.txt & 37930 & 43504 & 1003 & 9 & 1895 & 13634 & 112 & 1802 & 14 & 66 & 3 & 3 & 13 & 2 & 17\\
+      darkweb2017\_top-10000.txt & 780 & 4624 & 15 & 14 & 45 & 4308 & 6 & 90 & 13 & 84 & 2 & 1 & 13 & 1 & 3\\
+      english-6.txt & 0 & 12552 & 182 & 0 & 2245 & 10 & 0 & 0 & 0 & 535 & 8 & 10 & 0 & 0 & 0\\
+      fortinet-2021\_passwords-5k.txt & 184 & 185 & 15 & 8 & 57 & 650 & 74 & 1412 & 11 & 50 & 11 & 85 & 509 & 122 & 1615\\
+      hashmob.net\_tiny-200k.txt & 73459 & 79973 & 1112 & 73 & 3945 & 103835 & 559 & 16483 & 381 & 235 & 7 & 16 & 536 & 6 & 727\\
+      ignis-100K.txt & 24166 & 41517 & 965 & 44 & 1923 & 28307 & 189 & 2560 & 59 & 111 & 7 & 7 & 77 & 10 & 58\\
+      phpbb-m.txt & 20730 & 76125 & 1711 & 61 & 4982 & 65844 & 2187 & 8891 & 191 & 1387 & 37 & 271 & 1395 & 48 & 484\\
+      PwnedPasswordsTop100k.txt & 21376 & 31903 & 563 & 66 & 1039 & 41995 & 91 & 1081 & 68 & 1284 & 5 & 7 & 344 & 9 & 39\\
+      RockYou-960.txt & 157642 & 253093 & 15872 & 233 & 11085 & 406510 & 27242 & 25451 & 2919 & 21998 & 1534 & 3089 & 27803 & 1824 & 3703\\
+      Xato-net-100k.txt & 37931 & 43501 & 1003 & 9 & 1895 & 13630 & 112 & 1802 & 14 & 65 & 3 & 2 & 13 & 2 & 17\\
+      \hline
+  \end{tabular}
+  \caption{Porovnání slovníků podle obsažených znakových sad} \label{tabulka2}
+\end{table}
