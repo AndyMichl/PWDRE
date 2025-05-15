@@ -1,0 +1,50 @@
+# Example of configuration used for experiments in my bachelor thesis
+# When using this configuration it is necessary to have to have programs PACK and RuleForge in the folder "programs" and the Rulesfinder program installed
+
+general:
+  wordlist: dictionaries/wl/darkweb2017_top-10000.txt
+  attack: dictionaries/a/phpbb-m.txt
+  target: dictionaries/t/fortinet-2021_passwords-5k.txt
+  rules_file: expe/rule/<program>_<argsN>_<wordlist>.rule
+  stats_folder: expe/results/
+
+programs:
+- program: PACK
+  args:
+  - python2 -u programs/rulegen.py <wordlist> -b <rules>
+
+- program: RF
+  run: python3 programs/RuleForge.py --rulefile <rules> --representative combo
+  args:
+  - <run> --wordlist <wordlist> --ap --damping 0.9 --convergence_iter 15
+  - <run> --wordlist <wordlist> --hac --distance_threshold 4
+  - ./programs/MDBSCAN/MDBSCAN/bin/Release/net7.0/MDBSCAN 2 3 <wordlist> | <run> --stdin
+  - ./programs/MDBSCAN/MDBSCAN/bin/Release/net7.0/MDBSCAN 2 0.25 3 <wordlist> | <run> --stdin
+
+- program: RFI
+  args:
+  - rulesfinder --hashcat --cleartexts dictionaries/10-million-password-list-top-100k.txt -w <wordlist> -n 1 --minsize 5 > <rules>
+
+input:
+  wordlist_size:
+  - 1000
+  - 2500
+  - 5000
+  - 7500
+  - 10000
+  - 0
+
+  rules_size:
+  - 1000
+  - 2500
+  - 5000
+  - 7500
+  - 10000
+  - 20000
+
+stats:
+  time_passwords: true
+  memory_passwords: true
+  rules_passwords: true
+  cpu_passwords: true
+  recovered_guesses: true
