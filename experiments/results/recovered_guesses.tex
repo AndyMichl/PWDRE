@@ -1,0 +1,80 @@
+\begin{tikzpicture}
+  \begin{axis}[
+    width=\linewidth, 
+    every axis/.append style={font=\small},
+    title={Prolomená hesla},
+    xlabel={Počet vyzkoušených možností},
+    ylabel={\phantom{Prolomených hesel \%}},
+    legend style={
+      at={(0.5,-0.25)},
+      anchor=north,
+      legend columns=2,
+    },
+    enlargelimits=0.05,
+    scaled y ticks = false,
+    scaled x ticks = false,
+    cycle list={
+     {red},
+     {blue},
+     {green!70!black},
+     {magenta},
+     {cyan},
+     {orange},
+     {violet},
+     {purple},
+     {gray},
+     {darkgray}%
+    }
+    ]
+    
+    \addplot coordinates {
+      (184344000, 4.81) % progress = 184344000
+      (460860000, 5.45) % progress = 460860000
+      (921720000, 6.03) % progress = 921720000
+      (1382580000, 6.44) % progress = 1382580000
+      (1843440000, 6.6) % progress = 1843440000
+      }; % PACK\_0\_darkweb2017\_top-10000.rule
+    
+    \addplot coordinates {
+      (184344000, 5.81) % progress = 181947528
+      (460860000, 6.42) % progress = 452564520
+      (921720000, 6.6) % progress = 912687144
+      (1382580000, 6.78) % progress = 1372441080
+      (1843440000, 7.48) % progress = 1825558632
+      }; % RF\_0\_darkweb2017\_top-10000.rule
+    
+    \addplot coordinates {
+      (184344000, 5.19) % progress = 175864176
+      (460860000, 5.71) % progress = 450721080
+      (921720000, 6.09) % progress = 911581080
+      (1382580000, 6.36) % progress = 1371519360
+      (1843440000, 6.7) % progress = 1831457640
+      }; % RF\_1\_darkweb2017\_top-10000.rule
+    
+    \addplot coordinates {
+      (184344000, 5.33) % progress = 169043448
+      (460860000, 5.81) % progress = 444453384
+      (921720000, 6.17) % progress = 905313384
+      (1382580000, 6.66) % progress = 1366173384
+      (1843440000, 6.86) % progress = 1803068664
+      }; % RF\_2\_darkweb2017\_top-10000.rule
+    
+    \addplot coordinates {
+      (184344000, 6.21) % progress = 178629336
+      (460860000, 7.06) % progress = 444822072
+      (921720000, 7.94) % progress = 905497728
+      (1382580000, 8.1) % progress = 1340733912
+      (1843440000, 8.2) % progress = 1800119160
+      }; % RF\_3\_darkweb2017\_top-10000.rule
+    
+    \addplot coordinates {
+      (184344000, 6.21) % progress = 184344000
+      (460860000, 7.6) % progress = 460860000
+      (921720000, 7.98) % progress = 921720000
+      (1382580000, 8.6) % progress = 1382580000
+      (1843440000, 8.82) % progress = 1843440000
+      }; % RFI\_0\_darkweb2017\_top-10000.rule
+    
+    \legend{PACK\_0\_darkweb2017\_top-10000.rule, RF\_0\_darkweb2017\_top-10000.rule, RF\_1\_darkweb2017\_top-10000.rule, RF\_2\_darkweb2017\_top-10000.rule, RF\_3\_darkweb2017\_top-10000.rule, RFI\_0\_darkweb2017\_top-10000.rule}
+  \end{axis}
+\end{tikzpicture}
