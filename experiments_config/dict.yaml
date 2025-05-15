@@ -1,6 +1,6 @@
 general:
   wordlist: experiments_dictionaries/
-  stats_folder: expe/dict_results/
+  stats_folder: experiments/dict_results/
 
 stats:
   analyze_wordlist: True

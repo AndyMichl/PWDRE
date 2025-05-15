@@ -2,11 +2,11 @@
 # When using this configuration it is necessary to have to have programs PACK and RuleForge in the folder "programs" and the Rulesfinder program installed
 
 general:
-  wordlist: dictionaries/wl/darkweb2017_top-10000.txt
-  attack: dictionaries/a/phpbb-m.txt
-  target: dictionaries/t/fortinet-2021_passwords-5k.txt
-  rules_file: expe/rule/<program>_<argsN>_<wordlist>.rule
-  stats_folder: expe/results/
+  wordlist: dictionaries/darkweb2017_top-10000.txt
+  attack: dictionaries/phpbb-m.txt
+  target: dictionaries/fortinet-2021_passwords-5k.txt
+  rules_file: experiments/rule/<program>_<argsN>_<wordlist>.rule
+  stats_folder: experiments/results/
 
 programs:
 - program: PACK
