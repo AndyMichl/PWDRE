@@ -1,0 +1,14 @@
+{#- Author: Andrea Michlíková -#} 
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c||c|c|c|c|}
+  \hline
+  \multicolumn{2}{|c||}{Parametry} & \multicolumn{4}{|c|}{Průměrné hodnoty}\\ \hline
+    n & minsize & Čas generování pravidel & Potřebná paměť & Počet pravidel & Prolomené hesla\\ \hline 
+      {% for arg, time, memory, rules, recovered in data.points -%}
+      n & {{ arg }} & {{ time }} & {{ memory }} & {{ rules }} & {{ recovered }} \\
+      {% endfor -%}
+  \hline
+  \end{tabular}
+  \caption{Porovnání nastavení u programu} \label{tabulka1}
+\end{table}

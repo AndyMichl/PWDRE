@@ -1,0 +1,48 @@
+{#- Author: Andrea Michlíková -#} 
+% {{ labels.title }}
+\begin{tikzpicture}
+  \begin{axis}[
+    title={ {{ labels.title }} },
+    xlabel={ {{ labels.xlabel }} },
+    ylabel={ {{ labels.ylabel }} },
+    legend style={
+      at={(0.5,-0.25)},
+      anchor=north,
+      legend columns=2,
+    },
+    width=12cm,
+    height=8cm,
+    bar width=5pt,
+    ybar,
+    xtick=data,
+    scaled y ticks = false,
+    scaled x ticks = false,
+    xminorgrids=true,
+    minor x tick num=1,
+    enlarge x limits=0.05,
+    enlarge y limits=0.002,
+    ymin=0,
+    ymax={{ data.ymax }},
+    cycle list={
+      {red,fill=red!30},
+      {blue,fill=blue!30},
+      {green!70!black,fill=green!30},
+      {magenta,fill=magenta!30},
+      {cyan,fill=cyan!30},
+      {orange,fill=orange!30},
+      {violet,fill=violet!30},
+      {purple,fill=purple!30},
+      {gray,fill=gray!30},
+      {darkgray,fill=darkgray!30}%
+    }
+    ]
+    {% for data in plots %}
+    \addplot coordinates {
+      {% for x, y in data.points -%}
+        ({{ x }}, {{ y }})
+      {% endfor -%}
+    };
+    \addlegendentry{ {{- data.legend -}} } % recovered {{ data.recovered }} 
+    {% endfor %}
+  \end{axis}
+\end{tikzpicture}

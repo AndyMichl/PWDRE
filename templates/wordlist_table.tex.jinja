@@ -1,0 +1,45 @@
+{#- Author: Andrea Michlíková -#} 
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|c|c|}
+  \hline
+      & Počet & Průměrná & Medián & Průměrná & Entropie & ASCII \\
+      Slovník & hesel & délka & délky & entropie & nad 75 & hesla \\ \hline
+      {% for row in data -%}
+      {%- for item in row -%}
+      {{ item }}{% if not loop.last %} & {% endif %}
+      {%- endfor %} \\
+      {% endfor -%}
+  \hline
+  \end{tabular}
+  \caption{Porovnání slovníků s hesly} \label{tabulka1}
+\end{table}
+
+% Druhá tabulka: charset wordlist
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|{% for _ in header %}c|{% endfor %}}
+  \hline
+      Znaková sada {%- for wordlist in header %} & {{ wordlist }}{% endfor -%} \\ \hline
+      {% for charset, counts in charset_data.items() -%}
+      {{ charset }}{%- for wordlist in header %} & {{ counts.get(wordlist, 0) }}{% endfor -%} \\
+      {% endfor -%}
+  \hline
+  \end{tabular}
+  \caption{Porovnání znakových sad mezi slovníky} \label{tabulka2}
+\end{table}
+
+% Druhá tabulka jinak: charset wordlist
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|{% for charset in charset_data.keys() %}c|{% endfor %}}
+  \hline
+      Slovník {%- for charset in charset_data.keys() %} & {{ charset }}{% endfor -%} \\ \hline
+      {% for wordlist in header -%}
+      {{ wordlist }}
+      {%- for charset in charset_data.keys() %} & {{ charset_data[charset].get(wordlist, 0) }}{% endfor -%} \\
+      {% endfor -%}
+  \hline
+  \end{tabular}
+  \caption{Porovnání slovníků podle obsažených znakových sad} \label{tabulka2}
+\end{table}

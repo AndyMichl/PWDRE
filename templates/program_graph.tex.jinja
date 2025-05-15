@@ -1,0 +1,39 @@
+{#- Author: Andrea Michlíková -#} 
+\begin{tikzpicture}
+  \begin{axis}[
+    width=\linewidth, 
+    every axis/.append style={font=\small},
+    title={ {{- labels.title -}} },
+    xlabel={ {{- labels.xlabel -}} },
+    ylabel={\phantom{ {{- labels.ylabel -}} }},
+    legend style={
+      at={(0.5,-0.25)},
+      anchor=north,
+      legend columns=2,
+    },
+    enlargelimits=0.05,
+    scaled y ticks = false,
+    scaled x ticks = false,
+    cycle list={
+     {red},
+     {blue},
+     {green!70!black},
+     {magenta},
+     {cyan},
+     {orange},
+     {violet},
+     {purple},
+     {gray},
+     {darkgray}%
+    }
+    ]
+    {% for data in plots %}
+    \addplot coordinates {
+      {% for x, y, z in data.points -%}
+        ({{ x }}, {{ y }}) {{ z }}
+      {% endfor -%}
+    }; % {{ data.comment }}
+    {% endfor %}
+    \legend{ {%- for data in plots -%} {{ data.legend -}}{% if not loop.last %}, {% endif %}{%- endfor -%} }
+  \end{axis}
+\end{tikzpicture}
